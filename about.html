@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Zivya Enterprises</title>
+  <meta name="description" content="Learn about Zivya Enterprises - heritage craftsmanship serving discerning spaces worldwide.">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="about.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header"><div class="page-header-bg"><img src="https://images.unsplash.com/photo-1763978485095-1cd13f4d3cb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt=""></div><div class="container"><p class="page-header-tag">Our Story</p><h1>About Zivya Enterprises</h1><p class="page-header-sub">A heritage of handcrafted artistry, now serving discerning spaces worldwide.</p></div></div>
+
+  <section class="about-mission"><div class="container"><div class="grid about-mission-grid" style="display:grid;gap:3.5rem;align-items:center">
+    <div class="text">
+      <p class="section-tag">Who We Are</p>
+      <h2 class="section-title">Crafted with Purpose,<br>Designed for Life</h2>
+      <div class="gold-line" style="margin-top:1.5rem"></div>
+      <p style="color:#6A5A4A;font-size:.875rem;line-height:1.7;margin-bottom:1rem">Zivya Enterprises represents a refined approach to handcrafted design, where heritage craftsmanship meets modern sophistication. Based in Moradabad, India — the craft capital of the world — we have been creating premium lighting and décor pieces for over a decade.</p>
+      <p style="color:#6A5A4A;font-size:.875rem;line-height:1.7;margin-bottom:2rem">Every piece that leaves our workshop is a testament to the skill of our artisans, the quality of our materials, and the precision of our finishing — crafted to meet the standards of global markets and the expectations of discerning clients.</p>
+      <a href="contact.html" class="btn-gold">Work With Us ${icon('arrowRight',14)}</a>
+    </div>
+    <div style="position:relative">
+      <img src="https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Artisan crafting" style="width:100%;aspect-ratio:4/5;object-fit:cover">
+      <div class="about-badge"><div class="num" style="font-family:Georgia,serif;font-size:1.875rem;margin-bottom:.25rem">14+</div><div class="label" style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase">Years of Craftsmanship</div></div>
+    </div>
+  </div></div></section>
+
+  <section class="values-section"><div class="container"><div class="grid" style="display:grid;gap:3.5rem;align-items:center">
+    <div>
+      <p class="section-tag">Our Values</p>
+      <h2 class="section-title">What We Stand For</h2>
+      <ul class="values-list space-y-3" style="margin-top:1.5rem" id="values-list"></ul>
+    </div>
+    <div class="values-images">
+      <img src="https://images.unsplash.com/photo-1760182200277-fae00dfb149f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Craft">
+      <img src="https://images.unsplash.com/photo-1751564360677-e179e7b50b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Material">
+      <img src="https://images.unsplash.com/photo-1767605527576-851941ec0814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Product">
+      <img src="https://images.unsplash.com/photo-1760976829563-199c2e557ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Lantern">
+    </div>
+  </div></div></section>
+
+  <section class="timeline-section"><div class="container">
+    <div class="center" style="text-align:center;margin-bottom:3rem"><p class="section-tag">Our Journey</p><h2 class="section-title">Milestones That Define Us</h2></div>
+    <div class="timeline-wrap" style="position:relative"><div class="timeline-line"></div><div class="space-y-8" id="milestones"></div></div>
+  </div></section>
+
+  <section class="team-section"><div class="container">
+    <div class="center" style="text-align:center;margin-bottom:3rem"><p class="section-tag">Our People</p><h2 class="section-title">Meet the Team Behind the Craft</h2></div>
+    <div class="team-grid" id="team-grid"></div>
+  </div></section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const values=['Heritage craftsmanship passed down through generations','100% natural and sustainably sourced materials','Export-ready quality meeting international standards','Custom design solutions for every brand and market','Ethical artisan practices and fair wages','Eco-conscious packaging and shipping'];
+  document.getElementById('values-list').innerHTML=values.map(v=>`<li>${icon('checkCircle',16)}${v}</li>`).join('');
+
+  const milestones=[{year:'2010',event:'Founded in Moradabad, the brass city of India'},{year:'2013',event:'First international export to UAE & Gulf markets'},{year:'2016',event:'Expanded product line to include rattan & bamboo décor'},{year:'2019',event:'Achieved 100% sustainable materials certification'},{year:'2022',event:'Crossed 20+ countries with export partnerships'},{year:'2024',event:'Launched premium bespoke design services'}];
+  document.getElementById('milestones').innerHTML=milestones.map((m,i)=>`<div class="milestone" style="${i%2!==0?'flex-direction:row-reverse':''}"><div style="flex:1;${i%2===0?'text-align:right;padding-right:2.5rem':'text-align:left;padding-left:2.5rem'}"><div class="year">${m.year}</div><p class="event">${m.event}</p></div><div class="milestone-dot"></div><div style="flex:1;display:none" class="milestone-spacer"></div></div>`).join('');
+
+  const team=[{name:'Nazim Ali',role:'Founder & Creative Director',image:'https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'},{name:'Priya Mehta',role:'Head of Design & Craftsmanship',image:'https://images.unsplash.com/photo-1760981348070-ffa100647759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'},{name:'Ravi Gupta',role:'Export & Operations Manager',image:'https://images.unsplash.com/photo-1751564360677-e179e7b50b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'}];
+  document.getElementById('team-grid').innerHTML=team.map(t=>`<div class="team-card"><div class="img-wrap"><img src="${t.image}" alt="${t.name}"></div><h3 style="font-family:Georgia,serif">${t.name}</h3><p class="role">${t.role}</p></div>`).join('');
+
+  // Show milestone spacers on desktop
+  if(window.innerWidth>=768){document.querySelectorAll('.milestone-spacer').forEach(s=>s.style.display='block');}
+});
+</script>
+</body>
+</html>

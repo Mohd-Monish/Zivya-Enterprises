@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials - Zivya Enterprises</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="testimonials.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header"><div class="container"><p class="page-header-tag">Client Stories</p><h1>What Our Clients Say</h1><p class="page-header-sub">Real feedback from our valued clients across the globe — from interior designers to hospitality brands.</p></div></div>
+  <section class="testi-stats"><div class="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2.5rem 1.5rem;max-width:1280px;margin:0 auto" id="testi-stats"></div></section>
+  <section class="testi-grid-section container"><div class="testi-grid" id="testi-grid"></div></section>
+  <section class="trust-section"><div class="container" style="text-align:center">
+    <p class="section-tag" style="margin-bottom:2rem">Trusted By Clients In</p>
+    <div class="trust-countries" id="trust-countries"></div>
+  </div></section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const stats=[{value:'500+',label:'Happy Clients'},{value:'20+',label:'Countries'},{value:'4.9/5',label:'Average Rating'},{value:'98%',label:'Repeat Orders'}];
+  document.getElementById('testi-stats').innerHTML=stats.map(s=>`<div class="testi-stat"><div class="val">${s.value}</div><div class="label">${s.label}</div></div>`).join('');
+
+  const testimonials=[
+    {id:1,name:'Sarah Mitchell',role:'Interior Designer',company:'Studio Noir, Dubai',review:'Zivya\'s collections are simply exceptional. The rattan pendant lights we sourced transformed our client\'s restaurant completely. The quality, finishing, and packaging exceeded all our expectations.',rating:5,image:'https://images.unsplash.com/photo-1760981348070-ffa100647759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'Restaurant Interior, Dubai'},
+    {id:2,name:'Thomas Bergmann',role:'Head Buyer',company:'NaturHaus Retail, Germany',review:'We\'ve been working with Zivya for 3 years and they\'ve never disappointed. Their ability to handle large bulk orders with consistent quality is remarkable.',rating:5,image:'https://images.unsplash.com/photo-1751564360677-e179e7b50b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'Retail Chain Supply, Germany'},
+    {id:3,name:'Amira Al-Hassan',role:'Procurement Manager',company:'Hilton Properties, UAE',review:'The custom bamboo lantern collection Zivya created for our resort lobby is a showstopper. Guests constantly ask about them.',rating:5,image:'https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'Boutique Hotel, Abu Dhabi'},
+    {id:4,name:'James Whitfield',role:'E-Commerce Founder',company:'ArtisanHome, UK',review:'Their drop shipping service has been a game-changer for our online store. Products arrive beautifully packaged and customers love the quality.',rating:5,image:'https://images.unsplash.com/photo-1763978485095-1cd13f4d3cb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'E-commerce Partnership, UK'},
+    {id:5,name:'Linh Nguyen',role:'Creative Director',company:'Verde Home, Singapore',review:'Working with Zivya on our sustainable home collection was a pleasure from start to finish. Their design team understood our vision perfectly.',rating:5,image:'https://images.unsplash.com/photo-1767605527576-851941ec0814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'Custom OEM Collection, Singapore'},
+    {id:6,name:'Maria Santos',role:'Interior Stylist',company:'Casa Bonita, Portugal',review:'The woven planter series and storage baskets are absolutely stunning in person. Every piece reflects incredible skill and attention to detail.',rating:5,image:'https://images.unsplash.com/photo-1760182200277-fae00dfb149f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200',project:'Home Décor Curation, Portugal'}
+  ];
+  document.getElementById('testi-grid').innerHTML=testimonials.map(t=>`<div class="testi-card"><div class="stars">${Array(t.rating).fill(icon('star',13)).join('')}</div><div class="quote-icon">${icon('quote',24)}</div><p class="review">"${t.review}"</p><div class="project">${t.project}</div><div class="author-row"><img src="${t.image}" alt="${t.name}"><div><div class="author-name">${t.name}</div><div class="author-role">${t.role}, ${t.company}</div></div></div></div>`).join('');
+
+  const countries=['🇦🇪 Dubai','🇬🇧 United Kingdom','🇩🇪 Germany','🇺🇸 United States','🇸🇬 Singapore','🇦🇺 Australia','🇳🇱 Netherlands','🇵🇹 Portugal','🇫🇷 France','🇨🇦 Canada'];
+  document.getElementById('trust-countries').innerHTML=countries.map(c=>`<span>${c}</span>`).join('');
+  // responsive stats
+  if(window.innerWidth>=768){document.getElementById('testi-stats').parentElement.querySelector('.grid').style.gridTemplateColumns='repeat(4,1fr)';}
+});
+</script>
+</body>
+</html>

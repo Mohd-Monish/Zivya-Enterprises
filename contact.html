@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Zivya Enterprises</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="contact.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header"><div class="container"><p class="page-header-tag">Let's Talk</p><h1>Get In Touch</h1><p class="page-header-sub">Whether you're a retailer, interior designer, or hospitality brand — we'd love to hear from you.</p></div></div>
+
+  <div class="contact-strip"><div class="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2.5rem 1.5rem;max-width:1280px;margin:0 auto" id="contact-strip"></div></div>
+
+  <section class="contact-form-section container">
+    <div class="grid" style="display:grid;gap:3.5rem" id="contact-grid">
+      <div class="contact-form">
+        <p class="section-tag">Send a Message</p>
+        <h2 class="section-title" style="margin-bottom:2rem">Tell Us About Your Requirements</h2>
+        <div id="form-container">
+          <form id="contact-form" class="form-grid" style="display:grid;gap:1.25rem">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" name="name" required placeholder="Your full name"></div>
+              <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Company / Brand</label><input type="text" name="company" placeholder="Your company name"></div>
+              <div class="form-group"><label>Country</label><input type="text" name="country" placeholder="Your country"></div>
+            </div>
+            <div class="form-group"><label>I'm Interested In</label>
+              <select name="interest"><option>Bulk Order</option><option>Custom / OEM Design</option><option>Export Enquiry</option><option>Drop Shipping</option><option>Product Samples</option><option>General Enquiry</option></select>
+            </div>
+            <div class="form-group"><label>Subject</label><input type="text" name="subject" placeholder="Brief subject of your enquiry"></div>
+            <div class="form-group"><label>Message *</label><textarea name="message" required rows="5" placeholder="Describe your requirements in detail — products needed, quantities, delivery timeline, etc."></textarea></div>
+            <button type="submit" class="submit-btn">${icon('send',14)} Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div class="sidebar-dark">
+          <p class="section-tag" style="margin-bottom:1rem">Why Partner With Us?</p>
+          <ul class="space-y-4" id="sidebar-list"></ul>
+        </div>
+        <div class="map-placeholder">
+          <img src="https://images.unsplash.com/photo-1667924779390-2cf1d39c1887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Location">
+          <div class="overlay">${icon('mapPin',28)}<p class="city" style="font-family:Georgia,serif">Moradabad, India</p><p class="sub">The Craft Capital of the World</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const details=[
+    {icon:'mail',label:'Email Us',value:'info@zivyaenterprises.com',sub:'We respond within 24 hours'},
+    {icon:'phone',label:'Call Us',value:'+91 82860 66297',sub:'Mon–Sat, 9AM to 6PM IST'},
+    {icon:'mapPin',label:'Visit Us',value:'Moradabad, Uttar Pradesh',sub:'India — 244001'},
+    {icon:'clock',label:'Business Hours',value:'Mon – Sat: 9AM – 6PM',sub:'IST (UTC +5:30)'}
+  ];
+  document.getElementById('contact-strip').innerHTML=details.map(c=>`<div class="contact-item"><div class="icon-wrap">${icon(c.icon,18)}</div><div><p class="lbl">${c.label}</p><p class="val">${c.value}</p><p class="sub">${c.sub}</p></div></div>`).join('');
+
+  const reasons=['14+ years of export experience','Skilled artisans with generational expertise','100% natural, sustainable materials','Quality assured, export-ready production','Custom design & OEM capabilities','Competitive pricing for bulk orders','Reliable logistics and documentation support'];
+  document.getElementById('sidebar-list').innerHTML=reasons.map(r=>`<li><span class="dot"></span>${r}</li>`).join('');
+
+  // responsive
+  if(window.innerWidth>=768){document.getElementById('contact-strip').style.gridTemplateColumns='repeat(4,1fr)';}
+  if(window.innerWidth>=1024){document.querySelector('.contact-form-section .grid').style.gridTemplateColumns='1fr 420px';}
+
+  // form submit
+  document.getElementById('contact-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('form-container').innerHTML=`<div class="success-msg">${icon('checkCircle',48)}<h3 style="font-family:Georgia,serif">Message Sent!</h3><p>Thank you for reaching out. Our team will get back to you within 24 hours.</p><button class="btn-outline-gold" onclick="location.reload()">Send Another</button></div>`;
+  });
+});
+</script>
+</body>
+</html>

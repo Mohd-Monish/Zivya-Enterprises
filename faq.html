@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Zivya Enterprises</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="faq.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header"><div class="container"><p class="page-header-tag">Help Centre</p><h1>Frequently Asked Questions</h1><p class="page-header-sub">Everything you need to know about working with us, our products, and our export services.</p></div></div>
+  <section class="faq-section" id="faq-section"></section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const faqs=[
+    {category:'Orders & Products',items:[
+      {q:'What is the minimum order quantity (MOQ)?',a:'Our MOQ varies by product. For standard items, the MOQ starts at 50 units. For custom designs, it may start higher. Please contact us to discuss your specific requirements.'},
+      {q:'Do you offer custom designs and OEM manufacturing?',a:'Yes! We specialize in custom designs and OEM production. Share your design brief or sketches and our team will develop samples for your approval before full production begins.'},
+      {q:'What materials do you use?',a:'We use 100% natural, sustainably sourced materials including rattan, bamboo, jute, seagrass, and natural fibers. All materials are eco-certified and responsibly harvested.'},
+      {q:'Can I order samples before placing a bulk order?',a:'Absolutely. We encourage sample orders to ensure quality and design alignment before committing to bulk production. Sample charges may apply and are adjustable against bulk orders.'}
+    ]},
+    {category:'Shipping & Export',items:[
+      {q:'Which countries do you export to?',a:'We currently export to 20+ countries including UAE, UK, USA, Germany, Netherlands, Australia, Singapore, and more. Contact us if your country isn\'t listed.'},
+      {q:'What are your shipping and lead times?',a:'Standard production lead time is 4–6 weeks. Shipping time varies by destination (typically 2–4 weeks for sea freight). We\'ll provide a full timeline estimate with your quote.'},
+      {q:'Do you handle export documentation?',a:'Yes, we provide full export documentation support including commercial invoices, packing lists, certificates of origin, and customs clearance assistance.'},
+      {q:'Do you offer drop shipping services?',a:'Yes, we offer direct-to-customer drop shipping for e-commerce businesses. We can pack and dispatch orders under your brand name with custom packaging.'}
+    ]},
+    {category:'Quality & Standards',items:[
+      {q:'What quality checks are in place?',a:'All products go through a multi-stage quality inspection process including raw material checks, in-process QC, and final inspection before packaging. We adhere to international quality standards.'},
+      {q:'Are your products certified sustainable?',a:'Yes, we are committed to sustainability. Our materials are eco-certified and we follow responsible sourcing practices. We can provide documentation on request.'},
+      {q:'What happens if products arrive damaged?',a:'We take full responsibility for damaged goods caused by production or packaging defects. Replacement or credit will be offered after review of the claim.'}
+    ]}
+  ];
+  let openItem=null;
+  function render(){
+    let html='';
+    faqs.forEach(group=>{
+      html+=`<div class="faq-group"><h2 style="font-family:Georgia,serif">${group.category}</h2><div class="space-y-3">`;
+      group.items.forEach((item,idx)=>{
+        const key=group.category+'-'+idx;
+        const isOpen=openItem===key;
+        html+=`<div class="faq-item${isOpen?' open':''}"><button class="faq-question" data-key="${key}"><span>${item.q}</span><span class="icon">${isOpen?icon('minus',16):icon('plus',16)}</span></button><div class="faq-answer"><p>${item.a}</p></div></div>`;
+      });
+      html+=`</div></div>`;
+    });
+    html+=`<div class="faq-still"><h3 style="font-family:Georgia,serif">Still Have Questions?</h3><p>Our team is happy to help you with any questions not covered above.</p><a href="contact.html" class="btn-gold">Contact Us ${icon('arrowRight',13)}</a></div>`;
+    document.getElementById('faq-section').innerHTML=html;
+    document.querySelectorAll('.faq-question').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const key=this.dataset.key;
+        openItem=openItem===key?null:key;
+        render();
+      });
+    });
+  }
+  render();
+});
+</script>
+</body>
+</html>

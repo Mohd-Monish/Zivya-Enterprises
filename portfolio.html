@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Zivya Enterprises</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="portfolio.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header"><div class="page-header-bg" style="opacity:.2"><img src="https://images.unsplash.com/photo-1760976829563-199c2e557ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt=""></div><div class="container"><p class="page-header-tag">Our Work</p><h1>Portfolio</h1><p class="page-header-sub">A showcase of our finest projects — from boutique hotels to global retail chains.</p></div></div>
+
+  <div class="portfolio-filters"><div class="portfolio-filters-inner" id="portfolio-filters"></div></div>
+
+  <section class="masonry-section container"><div class="masonry-grid" id="masonry-grid"></div></section>
+
+  <section class="portfolio-cta"><div class="container" style="max-width:48rem;text-align:center">
+    <p class="section-tag">Have a Project in Mind?</p>
+    <h2 style="font-family:Georgia,serif;color:#2C2C2A;font-size:1.875rem;line-height:1.3;margin-bottom:1.25rem">Let's Add Your Project to Our Portfolio</h2>
+    <a href="contact.html" class="btn-gold">Start a Project ${icon('arrowRight',13)}</a>
+  </div></section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+const items=[
+  {id:1,title:'The Rattan Glow Collection',category:'Lighting',client:'Interior Studio, Dubai',image:'https://images.unsplash.com/photo-1697963793926-84cd35e224fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',size:'large'},
+  {id:2,title:'Boho Living Room Setup',category:'Interior Products',client:'Private Residence, London',image:'https://images.unsplash.com/photo-1760981348070-ffa100647759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',size:'small'},
+  {id:3,title:'Storage Décor Range',category:'Storage Décor',client:'Retail Chain, Germany',image:'https://images.unsplash.com/photo-1760182200277-fae00dfb149f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',size:'small'},
+  {id:4,title:'Bamboo Lantern Collection',category:'Lighting',client:'Boutique Hotel, Bali',image:'https://images.unsplash.com/photo-1760976829563-199c2e557ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',size:'large'},
+  {id:5,title:'Earthy Tones Interior Kit',category:'Interior Products',client:'Home Brand, Netherlands',image:'https://images.unsplash.com/photo-1763978485095-1cd13f4d3cb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',size:'small'},
+  {id:6,title:'Woven Planter Series',category:'Interior Products',client:'Garden Studio, USA',image:'https://images.unsplash.com/photo-1767605527576-851941ec0814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',size:'small'},
+  {id:7,title:'Nature-Inspired Cluster Lights',category:'Lighting',client:'Restaurant Chain, Singapore',image:'https://images.unsplash.com/photo-1667924779390-2cf1d39c1887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',size:'large'},
+  {id:8,title:'Artisan Workshop Showcase',category:'Behind the Scenes',client:'Brand Documentary',image:'https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',size:'small'}
+];
+const cats=['All','Lighting','Storage Décor','Interior Products','Behind the Scenes'];
+let active='All';
+function render(){
+  const filtered=active==='All'?items:items.filter(p=>p.category===active);
+  document.getElementById('portfolio-filters').innerHTML=cats.map(c=>`<button class="filter-btn${active===c?' active':''}" onclick="active='${c}';render()">${c}</button>`).join('');
+  document.getElementById('masonry-grid').innerHTML=filtered.map(item=>`<div class="masonry-item"><img src="${item.image}" alt="${item.title}" class="${item.size}"><div class="masonry-overlay"><div><p class="cat">${item.category}</p><h3 style="font-family:Georgia,serif">${item.title}</h3><p class="client">${item.client}</p></div></div></div>`).join('');
+}
+document.addEventListener('DOMContentLoaded',render);
+</script>
+</body>
+</html>

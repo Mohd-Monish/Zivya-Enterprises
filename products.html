@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Zivya Enterprises</title>
+  <meta name="description" content="Explore our curated collection of handcrafted lighting and décor.">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="products.html">
+<div id="header-placeholder"></div>
+<main>
+  <div class="page-header" style="background:linear-gradient(135deg,#1C1C1A 0%,#2C2C2A 100%)"><div class="page-header-bg" style="opacity:.15"><img src="https://images.unsplash.com/photo-1667924779390-2cf1d39c1887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt=""></div><div class="container"><p class="page-header-tag">Our Range</p><h1>Our Products</h1><p class="page-header-sub">Explore our curated collection of handcrafted lighting and décor, made with natural sustainable materials.</p></div></div>
+
+  <div class="filter-bar">
+    <div class="filter-bar-inner"><div class="filter-cats" id="filter-cats"></div>
+    <button class="filter-toggle" onclick="toggleFilters()">${icon('slidersHorizontal',13)} Filters</button></div>
+    <div class="material-filters" id="material-filters"></div>
+  </div>
+
+  <section class="products-section container">
+    <p class="products-count" id="products-count"></p>
+    <div id="products-grid-container"></div>
+    <div class="custom-order-cta">
+      <p class="section-tag">Looking for Something Unique?</p>
+      <h3>We Create Custom Orders Too</h3>
+      <p>Have a specific design in mind? Our artisans can craft bespoke pieces tailored to your exact specifications and brand requirements.</p>
+      <a href="contact.html" class="btn-gold">Request Custom Order ${icon('arrowRight',13)}</a>
+    </div>
+  </section>
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/icons.js"></script><script src="js/layout.js"></script>
+<script>
+const allProducts=[
+  {id:1,name:'Rattan Dome Pendant',category:'Lighting',material:'Rattan',price:'₹4,500',image:'https://images.unsplash.com/photo-1697963793926-84cd35e224fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:'Bestseller'},
+  {id:2,name:'Handwoven Storage Basket',category:'Storage Décor',material:'Seagrass',price:'₹2,800',image:'https://images.unsplash.com/photo-1760182200277-fae00dfb149f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:'New'},
+  {id:3,name:'Bamboo Floor Lantern',category:'Lighting',material:'Bamboo',price:'₹3,200',image:'https://images.unsplash.com/photo-1760976829563-199c2e557ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:null},
+  {id:4,name:'Jute Woven Planter',category:'Interior Products',material:'Jute',price:'₹1,800',image:'https://images.unsplash.com/photo-1767605527576-851941ec0814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:'Popular'},
+  {id:5,name:'Cluster Pendant Lights',category:'Lighting',material:'Rattan',price:'₹8,500',image:'https://images.unsplash.com/photo-1667924779390-2cf1d39c1887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:'Premium'},
+  {id:6,name:'Natural Fiber Wall Art',category:'Interior Products',material:'Jute',price:'₹5,200',image:'https://images.unsplash.com/photo-1763978485095-1cd13f4d3cb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:null},
+  {id:7,name:'Rattan Table Lamp',category:'Lighting',material:'Rattan',price:'₹3,800',image:'https://images.unsplash.com/photo-1760981348070-ffa100647759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:null},
+  {id:8,name:'Bamboo Tray Set',category:'Storage Décor',material:'Bamboo',price:'₹1,500',image:'https://images.unsplash.com/photo-1751564360677-e179e7b50b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',badge:'New'}
+];
+const categories=['All','Lighting','Storage Décor','Interior Products'];
+const materials=['All Materials','Rattan','Bamboo','Jute','Seagrass'];
+let activeCat='All',activeMat='All Materials',showFilters=false;
+
+function toggleFilters(){showFilters=!showFilters;document.getElementById('material-filters').classList.toggle('open',showFilters);renderMats();}
+function render(){
+  const filtered=allProducts.filter(p=>(activeCat==='All'||p.category===activeCat)&&(activeMat==='All Materials'||p.material===activeMat));
+  document.getElementById('filter-cats').innerHTML=categories.map(c=>`<button class="filter-btn${activeCat===c?' active':''}" onclick="activeCat='${c}';render()">${c}</button>`).join('');
+  document.getElementById('products-count').textContent=`Showing ${filtered.length} of ${allProducts.length} products`;
+  if(filtered.length===0){document.getElementById('products-grid-container').innerHTML='<div class="no-products">No products match the selected filters.</div>';return;}
+  document.getElementById('products-grid-container').innerHTML=`<div class="products-grid">${filtered.map(p=>`<div class="prod-card"><div class="img-wrap"><img src="${p.image}" alt="${p.name}">${p.badge?`<div class="prod-badge">${p.badge}</div>`:''}<div class="prod-hover-overlay"><a href="contact.html" class="prod-hover-btn">Enquire Now</a></div></div><div class="info"><p class="cat">${p.category}</p><h3>${p.name}</h3><div class="price-row"><span class="price" style="font-family:Georgia,serif">${p.price}</span><a href="contact.html" class="link-gold">Enquire ${icon('arrowRight',11)}</a></div></div></div>`).join('')}</div>`;
+  renderMats();
+}
+function renderMats(){
+  if(!showFilters)return;
+  const showClear=activeCat!=='All'||activeMat!=='All Materials';
+  document.getElementById('material-filters').innerHTML=`<span class="label">Material:</span>${materials.map(m=>`<button class="mat-btn${activeMat===m?' active':''}" onclick="activeMat='${m}';render()">${m}</button>`).join('')}${showClear?`<button class="clear-btn" onclick="activeCat='All';activeMat='All Materials';render()">${icon('x',13)} Clear All</button>`:''}`;
+}
+document.addEventListener('DOMContentLoaded',render);
+</script>
+</body>
+</html>

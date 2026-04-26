@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zivya Enterprises - Handcrafted Luxury Lighting & Décor</title>
+  <meta name="description" content="Sustainable, elegant, export-ready handcrafted lighting and décor designs by Zivya Enterprises.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="index.html">
+<div id="header-placeholder"></div>
+<main>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <img class="hero-img" id="hero-img" src="https://images.unsplash.com/photo-1697963793926-84cd35e224fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-slides-nav">
+        <button class="hero-slide-num active" onclick="goSlide(0)">01</button>
+        <button class="hero-slide-num" onclick="goSlide(1)">02</button>
+        <button class="hero-slide-num" onclick="goSlide(2)">03</button>
+        <div class="hero-slide-line"></div>
+      </div>
+      <div class="hero-text">
+        <p class="hero-tag" id="hero-tag">Handcrafted To Inspire</p>
+        <h1 id="hero-heading">Handcrafted Luxury
+Lighting & Décor</h1>
+        <p class="hero-sub" id="hero-sub">Sustainable. Elegant. Export-Ready Designs.
+Crafted by skilled artisans for discerning spaces.</p>
+        <div class="hero-btns">
+          <a href="products.html" class="btn-outline-gold">Explore Collection <span style="display:inline-flex">${icon('arrowRight',14)}</span></a>
+          <a href="about.html" class="btn-outline-white"><span class="play-icon">${icon('play',8)}</span> Our Story</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-arrows">
+      <button class="hero-arrow" onclick="prevSlide()">${icon('chevronLeft',16)}</button>
+      <button class="hero-arrow" onclick="nextSlide()">${icon('chevronRight',16)}</button>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-strip">
+    <div class="features-grid" id="features-grid"></div>
+  </section>
+
+  <!-- Collection -->
+  <section class="collection-section">
+    <div class="container">
+      <div class="collection-grid">
+        <div>
+          <p class="section-tag">Our Collection</p>
+          <h2 class="section-title">Explore Our<br>Collection</h2>
+          <div class="gold-line"></div>
+          <ul class="cat-list space-y-1" id="cat-list"></ul>
+          <a href="products.html" class="link-gold" style="margin-top:1.5rem;display:inline-flex">View All Products ${icon('arrowRight',13)}</a>
+        </div>
+        <div class="products-mini-grid" id="products-mini-grid"></div>
+        <div>
+          <p class="section-tag">Why Choose Zivya</p>
+          <h2 class="section-title" style="font-size:1.5rem">Where Craftsmanship Meets Conscious Living</h2>
+          <p class="why-choose" style="color:#7A6A58;font-size:.875rem;line-height:1.7;margin:1rem 0 1.5rem">We blend heritage craftsmanship with modern design to create timeless pieces using sustainable materials.</p>
+          <a href="about.html" class="btn-outline-gold">Learn More</a>
+          <div class="testimonial-mini">
+            <p class="section-tag">What Our Clients Say</p>
+            <div class="quote" style="font-family:Georgia,serif;font-size:2.5rem;color:#C9A84C;line-height:1">"</div>
+            <p style="color:#5A4A3A;font-size:.875rem;line-height:1.7;font-style:italic">Zivya's collections are exceptional. The quality, finishing and attention to detail make them our most loved pieces.</p>
+            <p style="color:#9A8A7A;font-size:.75rem;margin-top:.75rem">— Interior Studio, Dubai</p>
+            <div class="stars">${icon('star',11)}${icon('star',11)}${icon('star',11)}${icon('star',11)}${icon('star',11)}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story + Stats -->
+  <section class="story-stats">
+    <div class="story-panel">
+      <img src="https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Our story">
+      <div class="story-panel-content">
+        <p class="section-tag">Our Story</p>
+        <h2>Crafted with Purpose.<br>Designed for Life.</h2>
+        <p>Zivya Enterprises represents a refined approach to handcrafted design, where heritage craftsmanship meets modern sophistication. We create premium lighting and décor pieces using natural, sustainable materials, shaped by skilled artisans.</p>
+        <a href="about.html" class="btn-outline-gold">Discover Our Journey ${icon('arrowRight',13)}</a>
+      </div>
+    </div>
+    <div class="stats-panel">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-value">25+</div><div class="stat-label">Skilled Artisans</div></div>
+        <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Sustainable</div></div>
+        <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Countries Served</div></div>
+        <div class="stat-item"><div class="stat-value">Premium</div><div class="stat-label">Quality</div></div>
+      </div>
+      <div class="leaf-deco">
+        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" opacity="0.1"><path d="M60 5C60 5 20 25 15 50C10 75 35 80 60 75C85 80 110 75 105 50C100 25 60 5 60 5Z" fill="#4A6741"/><path d="M60 15C60 15 40 30 40 50C40 65 52 72 60 75" stroke="#4A6741" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="pattern"><svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><pattern id="leaf-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="30" fill="none" stroke="#C9A84C" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#leaf-pattern)"/></svg></div>
+    <div class="container">
+      <p class="section-tag">Ready To Elevate Your Space?</p>
+      <h2>Partner With Zivya Enterprises<br>For Custom Handcrafted Designs</h2>
+      <p style="color:#A89880;font-size:.875rem;margin-bottom:2rem">Whether you're a retailer, interior designer, or hospitality brand — we craft bespoke collections tailored to your vision.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-gold">Get In Touch</a>
+        <a href="products.html" class="btn-outline-white" style="border-color:rgba(255,255,255,.3)">View Catalogue</a>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="footer-placeholder"></div>
+
+<script src="js/icons.js"></script>
+<script src="js/layout.js"></script>
+<script>
+// Hero Slider
+const heroSlides=[
+  {id:'01',tag:'Handcrafted To Inspire',heading:'Handcrafted Luxury\nLighting & Décor',subtext:'Sustainable. Elegant. Export-Ready Designs.\nCrafted by skilled artisans for discerning spaces.',image:'https://images.unsplash.com/photo-1697963793926-84cd35e224fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'},
+  {id:'02',tag:'Sustainable Materials',heading:'Where Nature Meets\nTimeless Elegance',subtext:'Eco-friendly rattan, bamboo & jute.\nResponsibly sourced from skilled artisan communities.',image:'https://images.unsplash.com/photo-1763978485095-1cd13f4d3cb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'},
+  {id:'03',tag:'Export Quality',heading:'Global Reach,\nLocal Artisan Soul',subtext:'Exporting to 20+ countries worldwide.\nInternational standards you can rely on.',image:'https://images.unsplash.com/photo-1667924779390-2cf1d39c1887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'}
+];
+let activeSlide=0;
+function goSlide(i){activeSlide=i;renderSlide();}
+function nextSlide(){activeSlide=(activeSlide+1)%heroSlides.length;renderSlide();}
+function prevSlide(){activeSlide=(activeSlide-1+heroSlides.length)%heroSlides.length;renderSlide();}
+function renderSlide(){
+  const s=heroSlides[activeSlide];
+  document.getElementById('hero-img').src=s.image;
+  document.getElementById('hero-tag').textContent=s.tag;
+  document.getElementById('hero-heading').textContent=s.heading;
+  document.getElementById('hero-sub').textContent=s.subtext;
+  document.querySelectorAll('.hero-slide-num').forEach((b,i)=>b.classList.toggle('active',i===activeSlide));
+}
+
+// Features
+const features=[
+  {icon:'hand',title:'100% Handmade',desc:'Crafted by skilled artisans with generations of expertise.'},
+  {icon:'leaf',title:'Sustainable Materials',desc:'Eco-friendly, natural and responsibly sourced.'},
+  {icon:'globe',title:'Export Quality',desc:'International standards you can rely on.'},
+  {icon:'wrench',title:'Custom Solutions',desc:'Tailored designs for your brand and market.'}
+];
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('features-grid').innerHTML=features.map(f=>`<div class="feature-item"><div class="feature-icon">${icon(f.icon,18)}</div><div><h3 class="feature-title">${f.title}</h3><p class="feature-desc">${f.desc}</p></div></div>`).join('');
+
+  // Products
+  const products=[
+    {id:1,name:'Rattan Pendant Light',category:'Lighting',image:'https://images.unsplash.com/photo-1697963793926-84cd35e224fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'},
+    {id:2,name:'Handwoven Storage Basket',category:'Storage Décor',image:'https://images.unsplash.com/photo-1760182200277-fae00dfb149f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'},
+    {id:3,name:'Bamboo Lantern',category:'Lighting',image:'https://images.unsplash.com/photo-1760976829563-199c2e557ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'},
+    {id:4,name:'Woven Planter',category:'Interior Products',image:'https://images.unsplash.com/photo-1767605527576-851941ec0814?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'}
+  ];
+  const categories=['All Products','Lighting','Storage Décor','Interior Products'];
+  let activeCat='All Products';
+
+  function renderCats(){
+    document.getElementById('cat-list').innerHTML=categories.map(c=>`<li><button class="cat-btn${activeCat===c?' active':''}" onclick="setCat('${c}')">${c} ${icon('chevronRight',14)}</button></li>`).join('');
+  }
+  function renderProds(){
+    const filtered=activeCat==='All Products'?products:products.filter(p=>p.category===activeCat);
+    document.getElementById('products-mini-grid').innerHTML=filtered.map(p=>`<div class="product-card"><div class="product-card-img"><img src="${p.image}" alt="${p.name}"></div><div><h3>${p.name}</h3><p class="cat">${p.category}</p><a href="products.html" class="link-gold">View Product ${icon('arrowRight',12)}</a></div></div>`).join('');
+  }
+  window.setCat=function(c){activeCat=c;renderCats();renderProds();};
+  renderCats();renderProds();
+});
+</script>
+</body>
+</html>
