@@ -16,7 +16,7 @@ function getHeader(activePage) {
   return `
   <div class="top-bar"><div class="container top-bar-inner" style="display:flex;align-items:center;justify-content:space-between">
     <div class="top-bar-left"><span>Sustainable</span><span class="top-bar-dot">•</span><span>Handcrafted</span><span class="top-bar-dot">•</span><span>Export Quality</span></div>
-    <a href="https://instagram.com" target="_blank" class="top-bar-ig">${icon('instagram',13)} @zivyaenterprises</a>
+    <a href="https://instagram.com/zivyaenterprises" target="_blank" class="top-bar-ig">${icon('instagram',13)} @zivyaenterprises</a>
   </div></div>
   <header class="header" id="site-header">
     <div class="header-inner">
@@ -48,10 +48,10 @@ function getFooter() {
         <a href="index.html" class="footer-logo-wrap"><img src="${brandLogo}" class="footer-logo-img" alt="Zivya Enterprises logo" loading="lazy" decoding="async"></a>
         <p class="footer-desc">Crafting heritage-inspired lighting and décor with sustainable materials and skilled artisan hands.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social">${icon('instagram',14)}</a>
-          <a href="#" class="footer-social">${icon('facebook',14)}</a>
-          <a href="#" class="footer-social">${icon('twitter',14)}</a>
-          <a href="#" class="footer-social">${icon('linkedin',14)}</a>
+          <a href="https://instagram.com/zivyaenterprises" target="_blank" class="footer-social">${icon('instagram',14)}</a>
+          <a href="https://facebook.com/zivyaenterprises" target="_blank" class="footer-social">${icon('facebook',14)}</a>
+          <a href="https://twitter.com/zivyaenterprises" target="_blank" class="footer-social">${icon('twitter',14)}</a>
+          <a href="https://linkedin.com/company/zivyaenterprises" target="_blank" class="footer-social">${icon('linkedin',14)}</a>
         </div>
       </div>
       <div><h4>Quick Links</h4><ul class="space-y-3">${qlinks.map(l=>`<li><a href="${l.href}" class="footer-link">${icon('chevronRight',12)}${l.label}</a></li>`).join('')}</ul></div>
