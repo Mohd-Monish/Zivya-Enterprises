@@ -20,6 +20,69 @@
   margin-bottom: 1rem
 }
 
+.founder-section {
+  padding: 5rem 0;
+  background: #FAF7F2;
+}
+
+.founder-grid {
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.founder-img-wrap {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.founder-img-wrap img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 30px rgba(28, 28, 26, 0.08);
+}
+
+.founder-img-bg {
+  position: absolute;
+  top: 1.5rem;
+  left: -1.5rem;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #C9A84C;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.founder-text .gold-line {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.founder-name {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  color: #2C2C2A;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.founder-bio {
+  color: #6A5A4A;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.founder-bio:last-of-type {
+  margin-bottom: 0;
+}
+
 .about-img-wrap {
   position: relative
 }
@@ -1438,6 +1501,16 @@
     margin-top: 0;
   }
 
+  .founder-img-wrap {
+    max-width: 100%;
+    padding-left: 1.5rem;
+  }
+
+  .founder-img-bg {
+    left: 0;
+    top: 1rem;
+  }
+
   .filter-bar-inner {
     display: flex;
     flex-direction: column;
@@ -1578,6 +1651,10 @@
   .about-mission .grid,
   .values-section .grid {
     grid-template-columns: 1fr 1fr
+  }
+
+  .founder-grid {
+    grid-template-columns: 1fr 1.2fr;
   }
 
   .team-grid {
