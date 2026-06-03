@@ -9,7 +9,7 @@
 <div id="header-placeholder"></div>
 <main>
   <div class="page-header"><div class="container"><p class="page-header-tag">Client Stories</p><h1>What Our Clients Say</h1><p class="page-header-sub">Real feedback from our valued clients across the globe — from interior designers to hospitality brands.</p></div></div>
-  <section class="testi-stats"><div class="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2.5rem 1.5rem;max-width:1280px;margin:0 auto" id="testi-stats"></div></section>
+  <section class="testi-stats"><div class="grid" id="testi-stats"></div></section>
   <section class="testi-grid-section container"><div class="testi-grid" id="testi-grid"></div></section>
   <section class="trust-section"><div class="container" style="text-align:center">
     <p class="section-tag" style="margin-bottom:2rem">Trusted By Clients In</p>
@@ -35,8 +35,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
   const countries=['🇦🇪 Dubai','🇬🇧 United Kingdom','🇩🇪 Germany','🇺🇸 United States','🇸🇬 Singapore','🇦🇺 Australia','🇳🇱 Netherlands','🇵🇹 Portugal','🇫🇷 France','🇨🇦 Canada'];
   document.getElementById('trust-countries').innerHTML=countries.map(c=>`<span>${c}</span>`).join('');
-  // responsive stats
-  if(window.innerWidth>=768){document.getElementById('testi-stats').parentElement.querySelector('.grid').style.gridTemplateColumns='repeat(4,1fr)';}
 });
 </script>
 </body>

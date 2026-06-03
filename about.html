@@ -58,13 +58,14 @@ document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('values-list').innerHTML=values.map(v=>`<li>${icon('checkCircle',16)}${v}</li>`).join('');
 
   const milestones=[{year:'2010',event:'Founded in Moradabad, the brass city of India'},{year:'2013',event:'First international export to UAE & Gulf markets'},{year:'2016',event:'Expanded product line to include rattan & bamboo décor'},{year:'2019',event:'Achieved 100% sustainable materials certification'},{year:'2022',event:'Crossed 20+ countries with export partnerships'},{year:'2024',event:'Launched premium bespoke design services'}];
-  document.getElementById('milestones').innerHTML=milestones.map((m,i)=>`<div class="milestone" style="${i%2!==0?'flex-direction:row-reverse':''}"><div style="flex:1;${i%2===0?'text-align:right;padding-right:2.5rem':'text-align:left;padding-left:2.5rem'}"><div class="year">${m.year}</div><p class="event">${m.event}</p></div><div class="milestone-dot"></div><div style="flex:1;display:none" class="milestone-spacer"></div></div>`).join('');
+  const isDesktop=window.innerWidth>=768;
+  document.getElementById('milestones').innerHTML=milestones.map((m,i)=>`<div class="milestone" style="${isDesktop&&i%2!==0?'flex-direction:row-reverse':''}"><div style="flex:1;${isDesktop?(i%2===0?'text-align:right;padding-right:2.5rem':'text-align:left;padding-left:2.5rem'):'text-align:left;padding:0'}"><div class="year">${m.year}</div><p class="event">${m.event}</p></div><div class="milestone-dot"></div><div style="flex:1;display:none" class="milestone-spacer"></div></div>`).join('');
 
   const team=[{name:'Nazim Ali',role:'Founder & Creative Director',image:'https://images.unsplash.com/photo-1674159085094-6f1874d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'},{name:'Priya Mehta',role:'Head of Design & Craftsmanship',image:'https://images.unsplash.com/photo-1760981348070-ffa100647759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'},{name:'Ravi Gupta',role:'Export & Operations Manager',image:'https://images.unsplash.com/photo-1751564360677-e179e7b50b71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'}];
   document.getElementById('team-grid').innerHTML=team.map(t=>`<div class="team-card"><div class="img-wrap"><img src="${t.image}" alt="${t.name}"></div><h3 style="font-family:Georgia,serif">${t.name}</h3><p class="role">${t.role}</p></div>`).join('');
 
   // Show milestone spacers on desktop
-  if(window.innerWidth>=768){document.querySelectorAll('.milestone-spacer').forEach(s=>s.style.display='block');}
+  if(isDesktop){document.querySelectorAll('.milestone-spacer').forEach(s=>s.style.display='block');}
 });
 </script>
 </body>

@@ -10,7 +10,7 @@
 <main>
   <div class="page-header"><div class="container"><p class="page-header-tag">Let's Talk</p><h1>Get In Touch</h1><p class="page-header-sub">Whether you're a retailer, interior designer, or hospitality brand — we'd love to hear from you.</p></div></div>
 
-  <div class="contact-strip"><div class="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2.5rem 1.5rem;max-width:1280px;margin:0 auto" id="contact-strip"></div></div>
+  <div class="contact-strip"><div class="grid" id="contact-strip"></div></div>
 
   <section class="contact-form-section container">
     <div class="grid" style="display:grid;gap:3.5rem" id="contact-grid">
@@ -55,7 +55,7 @@
 document.addEventListener('DOMContentLoaded',function(){
   const details=[
     {icon:'mail',label:'Email Us',value:'info@zivyaenterprises.com',sub:'We respond within 24 hours'},
-    {icon:'phone',label:'Call Us',value:'+91 82860 66297',sub:'Mon–Sat, 9AM to 6PM IST'},
+    {icon:'phone',label:'Call Us',value:'+91 82660 66297',sub:'Mon–Sat, 9AM to 6PM IST'},
     {icon:'mapPin',label:'Visit Us',value:'Moradabad, Uttar Pradesh',sub:'India — 244001'},
     {icon:'clock',label:'Business Hours',value:'Mon – Sat: 9AM – 6PM',sub:'IST (UTC +5:30)'}
   ];
@@ -63,10 +63,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
   const reasons=['14+ years of export experience','Skilled artisans with generational expertise','100% natural, sustainable materials','Quality assured, export-ready production','Custom design & OEM capabilities','Competitive pricing for bulk orders','Reliable logistics and documentation support'];
   document.getElementById('sidebar-list').innerHTML=reasons.map(r=>`<li><span class="dot"></span>${r}</li>`).join('');
-
-  // responsive
-  if(window.innerWidth>=768){document.getElementById('contact-strip').style.gridTemplateColumns='repeat(4,1fr)';}
-  if(window.innerWidth>=1024){document.querySelector('.contact-form-section .grid').style.gridTemplateColumns='1fr 420px';}
 
   // form submit
   document.getElementById('contact-form').addEventListener('submit',function(e){

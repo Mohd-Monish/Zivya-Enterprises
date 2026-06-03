@@ -60,7 +60,7 @@ function getFooter() {
         <h4>Contact Us</h4>
         <ul class="space-y-4">
           <li class="footer-contact-item">${icon('mail',15)} info@zivyaenterprises.com</li>
-          <li class="footer-contact-item">${icon('phone',15)} +91 82860 66297</li>
+          <li class="footer-contact-item">${icon('phone',15)} +91 82660 66297</li>
           <li class="footer-contact-item">${icon('mapPin',15)} Moradabad, Uttar Pradesh, India</li>
         </ul>
         <div style="margin-top:1.5rem">
